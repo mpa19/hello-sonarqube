@@ -8,15 +8,11 @@ pipeline {
     }
 
     stages {
-        stage('Init docker sonarqube') {
-            steps {
-                sh 'docker-compose up'
-            }
-        }
-
         stage('Gradle sonarqube') {
             steps {
-                sh './gradlew sonarqube'
+                withSonarQubeEnv('My SonarQube Server', envOnly: true) {
+                    sh './gradlew sonarqube'
+                }
             }
         }
     }
