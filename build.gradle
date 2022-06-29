@@ -34,7 +34,7 @@ publishing {
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
+			url = uri("https://maven.pkg.github.com/mpa19/hello-sonarqube")
 			credentials {
 				username = project.findProperty("gpr.user")
 				password = project.findProperty("gpr.key")
