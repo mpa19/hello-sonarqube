@@ -18,7 +18,7 @@ pipeline {
 
         stage('Publish gradle nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus gradle', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1')]) {
+                withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1')]) {
                     withGradle {
                         sh './gradlew upload'
                     }
