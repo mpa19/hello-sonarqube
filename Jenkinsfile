@@ -16,9 +16,13 @@ pipeline {
             }
         }*/
 
-        stage('Publish gralde git') {
+        stage('Publish gradle git') {
             steps {
-                sh './gradlew publish'
+                withCredentials([usernamePassword(credentialsId: 'git gradle', passwordVariable: 'TOKEN', usernameVariable: 'USERNAME')]) {
+                    withGradle {
+                        sh './gradlew publish'
+                    }
+                }
             }
         }
     }
