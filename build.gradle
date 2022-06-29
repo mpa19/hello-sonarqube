@@ -39,10 +39,12 @@ publishing {
 				username = project.findProperty("gpr.user")
 				password = project.findProperty("gpr.key")
 			}
+
 		}
 	}
 	publications {
 		gpr(MavenPublication) {
+			version = 'latest'
 			from(components.java)
 		}
 	}
