@@ -18,7 +18,7 @@ pipeline {
 
         stage('Publish gralde git') {
             steps {
-                sh 'gradle publish'
+                sh './gradlew publish'
             }
         }
     }
