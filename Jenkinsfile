@@ -16,11 +16,11 @@ pipeline {
             }
         }*/
 
-        stage('Publish gradle git') {
+        stage('Publish gradle nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'git gradle', passwordVariable: 'TOKEN', usernameVariable: 'USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'nexus gradle', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1')]) {
                     withGradle {
-                        sh './gradlew publish'
+                        sh './gradlew upload'
                     }
                 }
             }
