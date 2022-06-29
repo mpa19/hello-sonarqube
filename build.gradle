@@ -44,8 +44,7 @@ publishing {
 	}
 	publications {
 		gpr(MavenPublication) {
-			version = 'latest'
-			from(components.java)
+			artifact bootJar
 		}
 	}
 }
