@@ -41,6 +41,16 @@ publishing {
 				password = System.getenv("TOKEN1")
 			}
 		}
+
+		maven {
+			url = uri("http://localhost:9084/repository/hello-sonarqube3/")
+
+			credentials {
+				username = System.getenv("USERNAME")
+				password = System.getenv("TOKEN")
+			}
+			allowInsecureProtocol = true
+		}
 	}
 	publications {
 		gpr(MavenPublication) {

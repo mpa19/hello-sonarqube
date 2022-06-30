@@ -15,23 +15,13 @@ pipeline {
                 }
             }
         }*/
-        stage('Publish gradle git') {
+        stage('Publish gradle git & nexus') {
             steps {
-               withCredentials([usernamePassword(credentialsId: 'git gradle', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1')]) {
+               withCredentials([usernamePassword(credentialsId: 'git gradle', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1'), usernamePassword(credentialsId: 'nexus1', passwordVariable: 'TOKEN', usernameVariable: 'USERNAME')]) {
                     withGradle {
                         sh './gradlew publish'
                     }
                }
-            }
-        }
-
-        stage('Publish gradle nexus') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus1', passwordVariable: 'TOKEN', usernameVariable: 'USERNAME')]) {
-                    withGradle {
-                        sh './gradlew publish'
-                    }
-                }
             }
         }
     }
