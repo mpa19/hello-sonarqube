@@ -20,7 +20,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'TOKEN1', usernameVariable: 'USERNAME1')]) {
                     withGradle {
-                        sh './gradlew upload'
+                        sh './gradlew publish'
                     }
                 }
             }

@@ -33,14 +33,15 @@ sonarqube {
 publishing {
 	repositories {
 		maven {
-			name = "GitHubPackages"
+			//name = "GitHubPackages"
 			//url = uri("https://maven.pkg.github.com/mpa19/hello-sonarqube")
-			url = uri("http://localhost:9084/repository/hello-sonarqube")
+			url = uri("http://localhost:9084/repository/hello-sonarqube3/")
 
 			credentials {
-				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME1")
-				password = project.findProperty("gpr.key") ?: System.getenv("TOKEN1")
+				username = System.getenv("USERNAME1")
+				password = System.getenv("TOKEN1")
 			}
+			allowInsecureProtocol = true
 
 		}
 	}
