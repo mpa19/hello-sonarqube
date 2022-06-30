@@ -33,16 +33,6 @@ sonarqube {
 publishing {
 	repositories {
 		maven {
-			url = uri("http://localhost:9084/repository/hello-sonarqube3/")
-
-			credentials {
-				username = System.getenv("USERNAME")
-				password = System.getenv("TOKEN")
-			}
-			allowInsecureProtocol = true
-		}
-
-		maven {
 			name = "GitHubPackages"
 			url = uri("https://maven.pkg.github.com/mpa19/hello-sonarqube")
 
@@ -50,6 +40,16 @@ publishing {
 				username = System.getenv("USERNAME1")
 				password = System.getenv("TOKEN1")
 			}
+		}
+
+		maven {
+			url = uri("http://localhost:9084/repository/hello-sonarqube3/")
+
+			credentials {
+				username = System.getenv("USERNAME")
+				password = System.getenv("TOKEN")
+			}
+			allowInsecureProtocol = true
 		}
 	}
 	publications {
