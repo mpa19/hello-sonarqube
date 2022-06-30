@@ -38,8 +38,8 @@ publishing {
 			url = uri("http://localhost:9084/repository/hello-sonarqube3/")
 
 			credentials {
-				username = System.getenv("USERNAME1")
-				password = System.getenv("TOKEN1")
+				username = System.getenv("USERNAME")
+				password = System.getenv("TOKEN")
 			}
 			allowInsecureProtocol = true
 
